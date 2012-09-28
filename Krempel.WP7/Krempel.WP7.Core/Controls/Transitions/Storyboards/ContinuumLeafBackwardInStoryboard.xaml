@@ -1,0 +1,18 @@
+﻿<Storyboard xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+    <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+        <EasingDoubleKeyFrame KeyTime="0" Value="-600"/>
+        <EasingDoubleKeyFrame KeyTime="0:0:0.75" Value="0">
+            <EasingDoubleKeyFrame.EasingFunction>
+                <ExponentialEase EasingMode="EaseOut" Exponent="3"/>
+            </EasingDoubleKeyFrame.EasingFunction>
+        </EasingDoubleKeyFrame>
+    </DoubleAnimationUsingKeyFrames>
+    <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+        <EasingDoubleKeyFrame KeyTime="0" Value="-130"/>
+        <EasingDoubleKeyFrame KeyTime="0:0:0.75" Value="0">
+            <EasingDoubleKeyFrame.EasingFunction>
+                <ExponentialEase EasingMode="EaseOut" Exponent="3"/>
+            </EasingDoubleKeyFrame.EasingFunction>
+        </EasingDoubleKeyFrame>
+    </DoubleAnimationUsingKeyFrames>
+</Storyboard>

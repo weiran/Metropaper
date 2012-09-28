@@ -1,0 +1,59 @@
+﻿<phone:PhoneApplicationPage xmlns:my="clr-namespace:WeiranZhang.Metropaper.Controls" 
+    x:Class="WeiranZhang.Metropaper.DetailsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="728" 
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait" 
+    shell:SystemTray.IsVisible="False"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" 
+    xmlns:toolkitPrimitives="clr-namespace:Microsoft.Phone.Controls.Primitives;assembly=Microsoft.Phone.Controls.Toolkit">
+    <!--Data context is set to sample data above and first item in sample data collection below and LayoutRoot contains the root grid where all other page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent" d:DataContext="{Binding Items[0]}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--ContentPanel contains details text. Place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="0">
+            <ScrollViewer HorizontalAlignment="Left" Margin="0,0,0,0" Name="bodyScrollViewer" VerticalAlignment="Top" MouseMove="bodyScrollViewer_MouseMove">
+                <StackPanel>
+                    <TextBlock x:Name="TitleTextBlock" Style="{Binding PhoneTextTitle3Style}">Heading</TextBlock>
+                    <TextBlock x:Name="DomainTextBlock" Style="{Binding PhoneTextSubtleStyle}">Domain.com</TextBlock>
+                    <my:NewHtmlBlock x:Name="HtmlBody" Margin="15,0,15,0" BookmarkViewModel="{Binding}" Loaded="HtmlBody_Loaded" NavigationRequested="HtmlBody_NavigationRequested" />
+                <toolkit:GestureService.GestureListener>
+                    <toolkit:GestureListener Hold="GestureListener_Hold" />
+                </toolkit:GestureService.GestureListener>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+    <!--link context menu-->
+    <toolkit:ContextMenuService.ContextMenu>
+        <toolkit:ContextMenu x:Name="linkContextMenu" 
+                             Background="{StaticResource PhoneContrastBackgroundBrush}" 
+                             Foreground="{StaticResource PhoneContrastForegroundBrush}">
+            <toolkit:MenuItem Header="Read later" x:Name="readLaterButton" Tap="linkContextMenu_Tap" />
+            <toolkit:MenuItem Header="Open link" x:Name="openInIEButton" Tap="linkContextMenu_Tap" />
+        </toolkit:ContextMenu>
+    </toolkit:ContextMenuService.ContextMenu>
+    <!--Sample code showing usage of ApplicationBar-->
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" x:Name="appBar">
+            <shell:ApplicationBarIconButton IconUri="/Images/ApplicationBar.Fav.Hollow.png" Text="Like" x:Name="starButton" Click="starButton_Click"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/ApplicationBar.Archive.png" Text="Archive" x:Name="archiveButton" Click="archiveButton_Click"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/ApplicationBar.Share.png" Text="Share" x:Name="shareButton" Click="shareButton_Click"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="Delete" x:Name="deleteButton" Click="deleteButton_Click" />
+                <shell:ApplicationBarMenuItem Text="Open in browser" x:Name="openInBrowserButton" Click="openInBrowserButton_Click" />
+                <shell:ApplicationBarMenuItem Text="Increase font size" x:Name="increaseFontSizeButton" Click="increaseFontSizeButton_Click" />
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+</phone:PhoneApplicationPage>

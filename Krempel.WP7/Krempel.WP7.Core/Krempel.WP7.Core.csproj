@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A4771628-1D6A-45D6-B1DC-360D6B1C78DA}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Krempel.WP7.Core</RootNamespace>
+    <AssemblyName>Krempel.WP7.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ReleaseAzure|AnyCPU'">
+    <OutputPath>bin\ReleaseAzure\</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>Bin\Release\Krempel.WP7.Core.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\..\packages\HtmlAgilityPack.1.4.3\lib\sl4-windowsphone71\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Controls.Toolkit">
+      <HintPath>..\packages\SilverlightToolkitWP.4.2011.12.14\lib\sl4-windowsphone71\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="Microsoft.Phone.Reactive" />
+    <Reference Include="System.Observable" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="mscorlib.extensions" />
+    <Reference Include="System.Xml.XPath">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft SDKs\Silverlight\v4.0\Libraries\Client\System.Xml.XPath.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\DelayLoadImage\DelayLoadImage.cs" />
+    <Compile Include="Controls\HtmlTextBlock\HtmlTextBlock.cs" />
+    <Compile Include="Controls\HtmlTextBlock\HtmlTextBlockExtensions.cs" />
+    <Compile Include="Controls\MultiValueBinding\Bindorama.cs" />
+    <Compile Include="Controls\MultiValueBinding\Disposer.cs" />
+    <Compile Include="Controls\MultiValueBinding\IMultiValueConverter.cs" />
+    <Compile Include="Controls\MultiValueBinding\MultiBinding.cs" />
+    <Compile Include="Controls\PullToRefreshPanel\PullToRefreshPanel.cs" />
+    <Compile Include="Controls\RearrangeListbox\ReorderListBox.cs" />
+    <Compile Include="Controls\RearrangeListbox\ReorderListBoxItem.cs" />
+    <Compile Include="Controls\Transitions\Storyboards\ContinuumLeafStoryboardBuilder.cs" />
+    <Compile Include="Controls\Transitions\Storyboards\TurnstileFeatherStoryboardBuilder.cs" />
+    <Compile Include="Controls\Transitions\Transitions.cs" />
+    <Compile Include="Controls\Transitions\Transitions\ContinuumMode.cs" />
+    <Compile Include="Controls\Transitions\Transitions\ContinuumTransition.cs" />
+    <Compile Include="Controls\Transitions\Transitions\ContinuumTransitionMode.cs" />
+    <Compile Include="Controls\Transitions\Transitions\CustomAnimationTransition.cs" />
+    <Compile Include="Controls\Transitions\Transitions\IStoryboardBuilder.cs" />
+    <Compile Include="Controls\Transitions\Transitions\ItemTurnstileHelper.cs" />
+    <Compile Include="Controls\Transitions\Transitions\ItemTurnstileTransition.cs" />
+    <Compile Include="Controls\Transitions\Transitions\ItemTurnstileXMode.cs" />
+    <Compile Include="Controls\Transitions\Transitions\ItemTurnstileYMode.cs" />
+    <Compile Include="Converters\NegativeValueConverter.cs" />
+    <Compile Include="Helpers\DesignerHelper.cs" />
+    <Compile Include="Helpers\WebBrowserHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Transitions\Storyboards\ContinuumLeafForwardOutStoryboard.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Controls\Transitions\Storyboards\ContinuumLeafForwardInStoryboard.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Controls\Transitions\Storyboards\ContinuumLeafBackwardInStoryboard.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Controls\Transitions\Storyboards\ContinuumLeafBackwardOutStoryboard.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Controls\Transitions\Storyboards\ContinuumBackwardInStoryboard.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Controls\Transitions\Storyboards\ContinuumBackwardOutStoryboard.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Controls\Transitions\Storyboards\ContinuumForwardInStoryboard.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Controls\Transitions\Storyboards\ContinuumForwardOutStoryboard.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="NuGet\Krempel.WP7.1.0.0.nupkg" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Metropaper.Controls\Metropaper.Controls.csproj">
+      <Project>{EB7AF752-F9C5-4A07-9448-50BFEE55A4DF}</Project>
+      <Name>Metropaper.Controls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

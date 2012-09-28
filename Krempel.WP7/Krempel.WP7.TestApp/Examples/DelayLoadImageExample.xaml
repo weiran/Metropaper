@@ -1,0 +1,53 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="Krempel.WP7.TestApp.Examples.DelayLoadImageExample"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:krempel="clr-namespace:Krempel.WP7.Core.Controls;assembly=Krempel.WP7.Core"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True">
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <krempel:ItemTurnstileTransition XMode="BackwardIn" YMode="BottomToTop" />
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <krempel:ItemTurnstileTransition XMode="ForwardIn" YMode="BottomToTop" />
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <krempel:ItemTurnstileTransition XMode="BackwardOut" YMode="TopToBottom" />
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <krempel:ItemTurnstileTransition XMode="ForwardOut" YMode="TopToBottom" />
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <controls:Pivot Title="KREMPEL's WP7 SNIPPETS">
+            <controls:PivotItem Header="DelayLoadImage">
+                <StackPanel>
+                    <TextBlock krempel:ItemTurnstileTransition.IsTurnstileItem="True" Text="Purpose of this control is to display a standard image while the actual image is being downloaded and stored in a cache folder" />
+                    <krempel:DelayLoadImage krempel:ItemTurnstileTransition.IsTurnstileItem="True" DefaultImageSource="/Resources/standard.png" ActualImageSource="http://media.ch9.ms/ch9/7c3c/95d7cb73-b2cd-4f67-b966-0700a2847c3c/VSToolbox29_512.jpg" />
+                    <TextBlock krempel:ItemTurnstileTransition.IsTurnstileItem="True" Text="The images are downloaded as soon as the control is visible" />
+                </StackPanel>
+            </controls:PivotItem>
+        </controls:Pivot>
+    </Grid>
+
+
+</phone:PhoneApplicationPage>

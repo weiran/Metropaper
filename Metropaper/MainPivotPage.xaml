@@ -1,0 +1,105 @@
+﻿<phone:PhoneApplicationPage xmlns:my="clr-namespace:WeiranZhang.Metropaper.Controls"  
+    x:Class="WeiranZhang.Metropaper.MainPivotPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <!--Pivot Control-->
+        <controls:Pivot Title="METROREADER">
+            <!--Pivot item one-->
+            <controls:PivotItem Header="read later">
+                <Grid>
+                    <ListBox x:Name="MainListBox" ItemsSource="{Binding Bookmarks}" Margin="0,0,-12,0" SelectionChanged="MainListBox_SelectionChanged" Width="467">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="0,0,0,17" Width="432">
+                                    <toolkit:ContextMenuService.ContextMenu>
+                                        <toolkit:ContextMenu>
+                                            <toolkit:MenuItem Header="archive" x:Name="archiveButton" Click="archiveButton_Click" />
+                                            <toolkit:MenuItem Header="delete" x:Name="deleteButton" Click="deleteButton_Click" />
+                                        </toolkit:ContextMenu>
+                                    </toolkit:ContextMenuService.ContextMenu>
+                                    <TextBlock Text="{Binding Title}" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{StaticResource PhoneTextTitle3Style}" />
+                                    <TextBlock Text="{Binding Domain}" TextWrapping="NoWrap" Margin="12,-3,12,0" TextTrimming="None" Style="{StaticResource PhoneTextBlockBase}" FontSize="16" Foreground="{StaticResource PhoneSubtleBrush}" />
+                                    <TextBlock Text="{Binding ShortBodyText}" TextWrapping="Wrap" Margin="12,0,12,0" TextTrimming="WordEllipsis" Style="{StaticResource PhoneTextSubtleStyle}" Height="62" />
+                                    <!--<ProgressBar Value="{Binding Progress}" Margin="0,-3,0,0" Height="10" Maximum="1" Minimum="0" Foreground="{StaticResource PhoneDisabledBrush}" />-->
+                                    <my:ReadProgress Margin="14,-7,0,0" Progress="{Binding Progress}" Length="{Binding BodyLength}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </controls:PivotItem>
+
+            <!--Pivot item two-->
+            <controls:PivotItem Header="liked">
+                <Grid>
+                    <ListBox x:Name="StarredListBox" ItemsSource="{Binding StarredBookmarks}" Margin="0,0,-12,0" SelectionChanged="MainListBox_SelectionChanged" Width="467">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="0,0,0,17" Width="432">
+                                    <toolkit:ContextMenuService.ContextMenu>
+                                        <toolkit:ContextMenu>
+                                            <toolkit:MenuItem Header="archive" x:Name="archiveButton" Click="archiveButton_Click" />
+                                            <toolkit:MenuItem Header="delete" x:Name="deleteButton" Click="deleteButton_Click" />
+                                        </toolkit:ContextMenu>
+                                    </toolkit:ContextMenuService.ContextMenu>
+                                    <TextBlock Text="{Binding Title}" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{StaticResource PhoneTextTitle3Style}" />
+                                    <TextBlock Text="{Binding Domain}" TextWrapping="NoWrap" Margin="12,-3,12,0" TextTrimming="None" Style="{StaticResource PhoneTextBlockBase}" FontSize="16" Foreground="{StaticResource PhoneSubtleBrush}" />
+                                    <TextBlock Text="{Binding ShortBodyText}" TextWrapping="Wrap" Margin="12,0,12,0" TextTrimming="WordEllipsis" Style="{StaticResource PhoneTextSubtleStyle}" Height="62" />
+                                    <my:ReadProgress Margin="14,-7,0,0" Progress="{Binding Progress}" Length="{Binding BodyLength}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </controls:PivotItem>
+            
+            <controls:PivotItem Header="archive">
+                <Grid>
+                    <ListBox x:Name="ArchivedListBox" ItemsSource="{Binding ArchivedBookmarks}" Margin="0,0,-12,0" SelectionChanged="MainListBox_SelectionChanged" Width="467">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="0,0,0,17" Width="432">
+                                    <toolkit:ContextMenuService.ContextMenu>
+                                        <toolkit:ContextMenu>
+                                            <toolkit:MenuItem Header="archive" x:Name="archiveButton" Click="archiveButton_Click" />
+                                            <toolkit:MenuItem Header="delete" x:Name="deleteButton" Click="deleteButton_Click" />
+                                        </toolkit:ContextMenu>
+                                    </toolkit:ContextMenuService.ContextMenu>
+                                    <TextBlock Text="{Binding Title}" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{StaticResource PhoneTextTitle3Style}" />
+                                    <TextBlock Text="{Binding Domain}" TextWrapping="NoWrap" Margin="12,-3,12,0" TextTrimming="None" Style="{StaticResource PhoneTextBlockBase}" FontSize="16" Foreground="{StaticResource PhoneSubtleBrush}" />
+                                    <TextBlock Text="{Binding ShortBodyText}" TextWrapping="Wrap" Margin="12,0,12,0" TextTrimming="WordEllipsis" Style="{StaticResource PhoneTextSubtleStyle}" Height="62" />
+                                    <my:ReadProgress Margin="14,-7,0,0" Progress="{Binding Progress}" Length="{Binding BodyLength}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </controls:PivotItem>
+        </controls:Pivot>
+
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/ApplicationBar.Add.png" Text="Add" x:Name="addBookmarkButton" Click="addBookmarkButton_Click" />
+            <shell:ApplicationBarIconButton IconUri="/Images/ApplicationBar.Settings.png" Text="Settings" x:Name="settingsButton" Click="settingsButton_Click" />
+            <shell:ApplicationBarIconButton IconUri="/Images/ApplicationBar.Refresh.png" Text="Refresh" x:Name="refreshButton" Click="refreshButton_Click"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

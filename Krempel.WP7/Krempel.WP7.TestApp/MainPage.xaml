@@ -1,0 +1,75 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="Krempel.WP7.TestApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:krempel="clr-namespace:Krempel.WP7.Core.Controls;assembly=Krempel.WP7.Core"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <krempel:ItemTurnstileTransition XMode="BackwardIn" YMode="BottomToTop" />
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <krempel:ItemTurnstileTransition XMode="ForwardIn" YMode="BottomToTop" />
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <krempel:ItemTurnstileTransition XMode="BackwardOut" YMode="TopToBottom" />
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <krempel:ItemTurnstileTransition XMode="ForwardOut" YMode="TopToBottom" />
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="KREMPEL's WP7 SNIPPETS" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="Samples" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <controls:Panorama Grid.Row="1" Margin="12,0,12,0">
+            <controls:PanoramaItem Header="Primairy">
+                <StackPanel x:Name="ContentPanel1">
+                    <Button krempel:ItemTurnstileTransition.IsTurnstileItem="True" x:Name="ButtonHTMLTextBlock" Content="HTMLTextBlock" Click="ButtonHTMLTextBlock_Click" />
+                    <Button krempel:ItemTurnstileTransition.IsTurnstileItem="True" x:Name="ButtonDelayLoadImage" Content="DelayLoadImage" Click="ButtonDelayLoadImage_Click" />
+                    <Button krempel:ItemTurnstileTransition.IsTurnstileItem="True" x:Name="ButtonPullToRefreshPanel" Content="PullToRefreshPanel" Click="ButtonPullToRefreshPanel_Click" />
+                    <Button krempel:ItemTurnstileTransition.IsTurnstileItem="True" x:Name="ButtonTurnstileTransition" Content="TurnstileTransition" Click="ButtonTurnstileTransition_Click" />
+                    <Button krempel:ItemTurnstileTransition.IsTurnstileItem="True" x:Name="ButtonContinuumTransition" Content="ContinuumTransition" Click="ButtonContinuumTransition_Click" />
+                </StackPanel>
+            </controls:PanoramaItem>
+            <controls:PanoramaItem Header="Secondairy">
+                <StackPanel x:Name="ContentPanel2">
+                    <Button krempel:ItemTurnstileTransition.IsTurnstileItem="True" x:Name="ButtonHTMLTextBlock2" Content="HTMLTextBlock" Click="ButtonHTMLTextBlock_Click" />
+                    <Button krempel:ItemTurnstileTransition.IsTurnstileItem="True" x:Name="ButtonDelayLoadImage2" Content="DelayLoadImage" Click="ButtonDelayLoadImage_Click" />
+                    <Button krempel:ItemTurnstileTransition.IsTurnstileItem="True" x:Name="ButtonPullToRefreshPanel2" Content="PullToRefreshPanel" Click="ButtonPullToRefreshPanel_Click" />
+                    <Button krempel:ItemTurnstileTransition.IsTurnstileItem="True" x:Name="ButtonTurnstileTransition2" Content="TurnstileTransition" Click="ButtonTurnstileTransition_Click" />
+                    <Button krempel:ItemTurnstileTransition.IsTurnstileItem="True" x:Name="ButtonContinuumTransition2" Content="ContinuumTransition" Click="ButtonContinuumTransition_Click" />
+                </StackPanel>
+            </controls:PanoramaItem>
+        </controls:Panorama>
+
+    </Grid>
+
+
+</phone:PhoneApplicationPage>
