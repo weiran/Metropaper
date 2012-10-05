@@ -12,7 +12,6 @@ using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using WeiranZhang.Metropaper.Storage;
 using WeiranZhang.Metropaper.Controllers;
-using Microsoft.Xna.Framework.GamerServices;
 
 namespace WeiranZhang.Metropaper
 {
@@ -31,26 +30,14 @@ namespace WeiranZhang.Metropaper
 
         private void clearCacheButton_Click(object sender, RoutedEventArgs e)
         {
-            Guide.BeginShowMessageBox(
-                "Are you sure you wish to clear the local cache?", 
-                "Metropaper will have to download all your bookmarks again.", 
-                new string[] { "Cancel", "Clear Cache" }, 0, 
-                MessageBoxIcon.Alert, result =>
-                {
-                    int? returned = Guide.EndShowMessageBox(result);
-                    if (returned.HasValue && returned.Value == 1)
-                    {
-                        Dispatcher.BeginInvoke(() =>
-                        {
-                            BookmarksController.ClearBookmarks();
-                            BookmarksStorageManager.DeleteAllCache();
-                            App.ViewModel.Bookmarks.Clear();
-                            App.ViewModel.LoadDataFromWeb();
-                            NavigationService.GoBack();
-                        });
-                    }
-                }, 
-            null);
+            Dispatcher.BeginInvoke(() =>
+            {
+                BookmarksController.ClearBookmarks();
+                BookmarksStorageManager.DeleteAllCache();
+                App.ViewModel.Bookmarks.Clear();
+                App.ViewModel.LoadDataFromWeb();
+                NavigationService.GoBack();
+            });
         }
     }
 }

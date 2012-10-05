@@ -148,12 +148,6 @@
     <None Include="NuGet\Krempel.WP7.1.0.0.nupkg" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Metropaper.Controls\Metropaper.Controls.csproj">
-      <Project>{EB7AF752-F9C5-4A07-9448-50BFEE55A4DF}</Project>
-      <Name>Metropaper.Controls</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions />

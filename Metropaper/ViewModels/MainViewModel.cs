@@ -130,8 +130,16 @@ namespace WeiranZhang.Metropaper
 
                 if (existingBookmark == null) // new bookmark
                 {
-                    bookmarksCollection.Add(bookmarkViewModel);
-                    App.DbDataContext.Bookmarks.InsertOnSubmit(bookmark);
+                    try
+                    {
+                        bookmarksCollection.Add(bookmarkViewModel);
+                        App.DbDataContext.Bookmarks.InsertOnSubmit(bookmark);
+                    }
+                    catch (InvalidOperationException e)
+                    {
+                        // probably trying to insert dulpicate item
+                        continue;
+                    }
                 }
                 else
                 {

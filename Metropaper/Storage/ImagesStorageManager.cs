@@ -91,8 +91,16 @@ namespace WeiranZhang.Metropaper.Storage
                 executedCallBack.Set();
             };
 
-            client.OpenReadAsync(new Uri(imageUrl));
-            executedCallBack.WaitOne();
+            try
+            {
+                client.OpenReadAsync(new Uri(imageUrl));
+                executedCallBack.WaitOne();
+            }
+            catch (Exception e)
+            {
+                // invalid URL
+                // todo: Log this error
+            }
         }
 
         public static WriteableBitmap GetImage(string filePath)
