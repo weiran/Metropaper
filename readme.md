@@ -1,17 +1,20 @@
 # Metropaper
-
-## An Instapaper client for Windows Phone
+### An Instapaper client for Windows Phone
 
 This repository contains the source to Metropaper, an Instapaper client for Windows Phone.
 
 Metropaper uses the [full Instapaper API](http://www.instapaper.com/api/full), which means you need an [Instapaper subscription](http://www.instapaper.com/subscription) (which costs $1/m).
 
-## Features:
+## Features
 
 * Offline reading for your bookmarks
 * Fast, native rendering of articles
 * Automatic syncing and downloading of your Instapaper bookmarks
 * Sync your read progress throughout all apps
+
+## Installation
+
+This app is being submitted to the Windows Phone Store. It will be available for free. If you are a registered and paying member of the [Windows Phone Dev Center](https://dev.windowsphone.com), then you can run the app on your own phone directly.
 
 ## Requirements
 
